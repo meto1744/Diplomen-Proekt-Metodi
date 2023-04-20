@@ -1,0 +1,98 @@
+﻿@model IEnumerable<WebCocktailBar.Models.Order.OrderIndexVM>
+
+@{
+    ViewData["Title"] = "MyOrders";
+}
+
+<h1>MyOrders</h1>
+
+<p>
+    <a asp-controller="Product" asp-action="Index">Back to Products</a>
+</p>
+
+<form asp-controller="Order" asp-action="MyOrders" method="get">
+    <p>
+        Product name: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.UserId)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.ProductId)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.UserId)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.User)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.ProductId)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product)
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.Picture)" alt="Img" width="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                @*<td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>

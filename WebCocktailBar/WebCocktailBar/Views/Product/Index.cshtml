@@ -1,0 +1,111 @@
+﻿@using WebCocktailBar.Models.Order
+@model IEnumerable<WebCocktailBar.Models.Product.ProductIndexVM>
+
+@{
+    ViewData["Title"] = "Cocktails";
+}
+
+<h1>Cocktails</h1>
+@if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+<form asp-controller="Product" asp-action="Index" method="get">
+     <p>
+    Taste: <input type="text" name="SearchStringTasteName"/>
+    Category: <input type="text" name="SearchStringCategoryName"/>
+    <input type="submit" value="Filter"/>
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.TasteName)
+            </th>
+    
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MethodOfPreparation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            
+                @if (this.User.Identity.IsAuthenticated)
+                {
+                   <th>
+                       Order
+                   </th>
+                }
+           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TasteName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MethodOfPreparation)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.Picture)" alt="image" width="100"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount) %
+            </td>
+            @if (this.User.Identity.IsAuthenticated)
+                {
+                        <td>
+                            @await Html.PartialAsync("_OrderPartialView", new OrderConfirmVM
+                            {
+                                ProductId = item.Id
+                            })
+                        </td>
+                    }
+            <td>
+                
+                @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
+                {<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> }|
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
+                {<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>}
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

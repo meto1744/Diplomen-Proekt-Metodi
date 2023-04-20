@@ -1,0 +1,13 @@
+﻿@model WebCocktailBar.Models.Order.OrderConfirmVM
+
+<form asp-controller="Order" asp-action="Create" method="get">
+    <div class="d-flex align-items-center">
+        <label class="font-weight-boldm text-left mr-1" asp-for="Quantity">Quantity:</label>
+        <div class="mr-1">
+            <input class="form-control" min="1" asp-for="Quantity" />
+            <span asp-validation-for="Quantity" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-danger">Order</button>
+    </div>
+    <input type="hidden" asp-for="ProductId" value="@Model.ProductId" />
+</form>

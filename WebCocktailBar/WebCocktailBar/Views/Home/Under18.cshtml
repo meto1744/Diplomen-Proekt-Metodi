@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<style>
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+    }
+    .popup-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 200px;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        text-align: center;
+    }
+    .popup-box h3 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    .popup-box button {
+        display: block;
+        margin: 20px auto 0;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+<body class="gradient-custom">
+@{
+    ViewBag.Title = "Under 18";
+}
+
+<div>
+    <h2>You must be 18 or older to view this site.</h2>
+    <p>Sorry, you are not old enough to view this content.</p>
+    <button id="leave-site" class="button">Leave Site</button>
+</div>
+</body>
+
+@section Scripts {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#leave-site').click(function () {
+                     
+                    window.location.href = "https://www.google.com";
+                });
+            });
+        </script>
+}

@@ -1,0 +1,80 @@
+﻿@model WebShopDemo.Models.Product.ProductEditVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ProductEditVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TasteId" class="control-label"></label>
+                @*<input asp-for="TasteId" class="form-control" />*@
+                <select asp-for="TasteId" class="form-control text-center">
+                    @foreach (var taste in Model.Tastes)
+                    {
+                        <option value ="@taste.Id">@taste.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                @*<input asp-for="CategoryId" class="form-control" />*@
+                <<select asp-for="CategoryId" class="form-control text-center">
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value ="@category.Id">@category.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MethodofPreparation" class="control-label"></label>
+                <input asp-for="MethodofPreparation" class="form-control" />
+                <span asp-validation-for="MethodofPreparation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Picture" class="control-label"></label>
+                <input asp-for="Picture" class="form-control" />
+                <span asp-validation-for="Picture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discount" class="control-label"></label>
+                <input asp-for="Discount" class="form-control" />
+                <span asp-validation-for="Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

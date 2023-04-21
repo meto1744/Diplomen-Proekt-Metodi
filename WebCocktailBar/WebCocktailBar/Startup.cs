@@ -49,7 +49,7 @@ namespace WebCocktailBar
                 .AddDefaultTokenProviders();
             services.AddControllersWithViews();
 
-
+            services.AddTransient<ISignatureProduct, SignatureProductService>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ITasteService, TasteService>();

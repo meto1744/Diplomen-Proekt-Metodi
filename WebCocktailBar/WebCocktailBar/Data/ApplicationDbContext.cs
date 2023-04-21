@@ -8,6 +8,7 @@ using WebCocktailBar.Models.Product;
 using WebShopDemo.Models.Product;
 using WebCocktailBar.Models.Order;
 using WebCocktailBar.Models.Client;
+using WebCocktailBar.Models.SignatureProduct;
 
 namespace WebCocktailBar.Data
 {
@@ -27,6 +28,8 @@ namespace WebCocktailBar.Data
 
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<SignatureProduct> SignatureProducts { get; set; }
+
         public DbSet<WebCocktailBar.Models.Product.ProductCreateVM> ProductCreateVM { get; set; }
 
         public DbSet<WebCocktailBar.Models.Product.ProductIndexVM> ProductIndexVM { get; set; }
@@ -44,6 +47,8 @@ namespace WebCocktailBar.Data
         public DbSet<WebCocktailBar.Models.Client.ClientIndexVM> ClientIndexVM { get; set; }
 
         public DbSet<WebCocktailBar.Models.Client.ClientDeleteVM> ClientDeleteVM { get; set; }
+
+        public DbSet<WebCocktailBar.Models.SignatureProduct.SignatureProductIndexVM> SignatureProductIndexVM { get; set; }
 
     }
 }

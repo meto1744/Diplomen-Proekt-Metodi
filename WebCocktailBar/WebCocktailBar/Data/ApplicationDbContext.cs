@@ -50,5 +50,7 @@ namespace WebCocktailBar.Data
 
         public DbSet<WebCocktailBar.Models.SignatureProduct.SignatureProductIndexVM> SignatureProductIndexVM { get; set; }
 
+        public DbSet<WebCocktailBar.Models.SignatureProduct.SignatureProductCreateVM> SignatureProductCreateVM { get; set; }
+
     }
 }

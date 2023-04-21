@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebCocktailBar.Domain
@@ -35,5 +36,6 @@ namespace WebCocktailBar.Domain
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
 
+        public string UserId { get; set; }
     }
 }

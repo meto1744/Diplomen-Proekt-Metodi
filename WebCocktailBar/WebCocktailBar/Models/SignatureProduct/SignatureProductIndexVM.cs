@@ -34,5 +34,11 @@ namespace WebCocktailBar.Models.SignatureProduct
 
         [Display(Name = "Discount")]
         public decimal Discount { get; set; }
+
+        public int ProductId { get; set; }
+
+        public string Product { get; set; }
+
+
     }
 }

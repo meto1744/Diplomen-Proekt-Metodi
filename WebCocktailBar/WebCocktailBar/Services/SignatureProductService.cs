@@ -19,5 +19,23 @@ namespace WebCocktailBar.Services
             List<SignatureProduct> products = _context.SignatureProducts.ToList();
             return products;
         }
+
+        public bool SignatureCreate(string name, int tasteId, int categoryId, string methodofprep, string picture, int quantity, decimal price, decimal discount)
+        {
+            SignatureProduct item = new SignatureProduct
+            {
+                ProductName = name,
+                Taste = _context.Tastes.Find(tasteId),
+                Category = _context.Categories.Find(categoryId),
+                MethodOfPreparation = methodofprep,
+                Picture = picture,
+                Quantity = quantity,
+                Price = price,
+                Discount = discount
+            };
+
+            _context.SignatureProducts.Add(item);
+            return _context.SaveChanges() != 0;
+        }
     }
 }

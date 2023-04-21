@@ -5,10 +5,11 @@
 }
 
 <h1>Index</h1>
-
-<p>
+@if (this.User.Identity.IsAuthenticated){
+    <p>
     <a asp-action="Create">Create New</a>
 </p>
+}
 <table class="table">
     <thead>
         <tr>
@@ -67,6 +68,7 @@
                 @Html.DisplayFor(modelItem => item.Discount) %
             </td>
         </tr>
+
 }
     </tbody>
 </table>

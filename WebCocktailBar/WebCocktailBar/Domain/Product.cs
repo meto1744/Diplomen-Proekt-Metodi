@@ -40,5 +40,7 @@ namespace WebCocktailBar.Domain
         public decimal Discount { get; set; }
 
         public virtual IEnumerable<Order> Orders { get; set; } = new List<Order>();
+
+        public int UserId   { get; set; }
     }
 }

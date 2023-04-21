@@ -1,15 +1,67 @@
-﻿@{
+﻿   @{
     ViewData["Title"] = "Home Page";
 }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     @Html.Partial("Over18Popup")
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-CpfRa1hK08U6f3qgG7Q0i47d91w7VWrvKfZ5r5YcdiF0/c+CzvrO9X0y6hLdE5KBNKeRwTx0AzAsZ0sjlU6ukQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #F6EEE0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #1D2B53;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #F38A31;
+        }
+
+        .link {
+            display: inline-block;
+            margin-top: 1rem;
+            background-color: #F38A31;
+            color: #fff;
+            border-radius: 0.5rem;
+            padding: 0.5rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover {
+            background-color: #1D2B53;
+            color: #fff;
+        }
+
+        .fa {
+            margin-right: 0.5rem;        
+        }
+        
+    </style>
+</head>
 <body>
-    @Html.Partial("Over18Popup")
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="container">
+        <h1 class="header">Welcome</h1>
+        <p class="subtitle">Learn about building Web apps with ASP.NET Core</p>
+        <a href="#" class="link"><i class="fas fa-download"></i>Download Now</a>
+    </div>
 </body>
-@section Scripts{
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    }
+</html>

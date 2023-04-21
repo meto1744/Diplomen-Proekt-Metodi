@@ -97,6 +97,7 @@ namespace WebCocktailBar.Areas.Identity.Pages.Account
                     UserName = Input.Username,
                     Email = Input.Email
                 };
+                
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

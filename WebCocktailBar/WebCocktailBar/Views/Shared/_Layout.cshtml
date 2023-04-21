@@ -1,7 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
     <style>
-        .navbar img {   width: 81px;   margin-right: 10px; }
+        .navbar img {   width: 81px;   margin-right: 2px; }
+        .navbar { height: 90px}
+        #normal-container-height {height: 45px;text-align: center;}
+        
     </style>
 <head>
     <meta charset="utf-8" />
@@ -12,7 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <header>
+    <header >
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <img src ="https://www.shutterstock.com/image-vector/cocktail-concept-vector-logo-design-600w-1387368881.jpg" alt="logo"/>
@@ -25,9 +28,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Contacts</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
                         </li>
@@ -85,10 +86,10 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - WebCocktailBar - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <div id="normal-container-height">
+        &copy; 2023 - WebCocktailBar - <a asp-area="" asp-controller="Home" asp-action="Privacy">Contacts</a>
+    </div>
+</footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

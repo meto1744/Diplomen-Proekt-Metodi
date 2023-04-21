@@ -68,7 +68,7 @@ namespace WebCocktailBar.Services
                 return products;
             }
 
-            public bool RemoveById(int productId)
+        public bool RemoveById(int productId)
             {
             var product = GetProductById(productId);
             if (product == default(Product))

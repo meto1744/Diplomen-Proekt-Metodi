@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebCocktailBar.Domain
 {
-    public class ApplicationUser:IdentityUser
+    public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

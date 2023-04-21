@@ -44,5 +44,6 @@ namespace WebCocktailBar.Data
         public DbSet<WebCocktailBar.Models.Client.ClientIndexVM> ClientIndexVM { get; set; }
 
         public DbSet<WebCocktailBar.Models.Client.ClientDeleteVM> ClientDeleteVM { get; set; }
+
     }
 }

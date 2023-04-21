@@ -12,5 +12,6 @@ namespace WebCocktailBar.Abstraction
         Product GetProductById(int productId);
         bool RemoveById(int productId);
         List<Product> GetProducts(string searchStringCategoryName, string searchStringTasteName, string searchStringProductName);
+
     }
 }

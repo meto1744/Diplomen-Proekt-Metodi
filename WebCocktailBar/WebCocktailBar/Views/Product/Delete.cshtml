@@ -51,7 +51,7 @@
             @Html.DisplayNameFor(model => model.Picture)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Picture)
+            <img src="@Html.DisplayFor(model => model.Picture)" alt="image" width="100"/>
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Quantity)
@@ -75,10 +75,135 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btnDelete btn-danger" /> |
+        <a asp-action="Index" class="btnDelete">Back to List</a>
     </form>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<style>
+    body {
+        background-color: #F6EEE0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: #1D2B53;
+        text-align: center;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #F38A31;
+        text-align: center;
+    }
+
+    .btnDelete {
+        background-color: #F38A31;
+        color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+        margin-right: 1rem;
+    }
+
+    .btnDelete:hover {
+        background-color: #1D2B53;
+        color: #fff;
+    }
+
+    .fa {
+        margin-right: 0.5rem;        
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-control {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    /* Media queries for responsive design */
+    @@media (max-width: 767px) {
+        .container {
+            padding: 1rem;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn1 {
+            padding: 0.25rem 1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .fa {
+            margin-right: 0.25rem;        
+        }
+    }
+
+    @@media (min-width: 768px) and (max-width: 991px) {
+        .container {
+            padding: 1.5rem;
+        }
+
+        .title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn1 {
+            padding: 0.5rem 1.75rem;
+            margin-right: 0.75rem;
+        }
+    }
+
+    @@media (min-width: 992px) {
+        .container {
+            padding: 2rem;
+        }
+
+        .title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn1 {
+            padding: 0.5rem 2rem;
+            margin-right: 1rem;
+        }
+    }
+</style>
+

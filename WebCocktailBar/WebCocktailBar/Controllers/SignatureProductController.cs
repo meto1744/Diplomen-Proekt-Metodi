@@ -30,10 +30,14 @@ namespace WebCocktailBar.Controllers
         }
         public ActionResult Index(string searchString)
         {
-            
+            string userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var user = _context.Users.SingleOrDefault(u => u.Id == userId);
+
             List<SignatureProductIndexVM> Signatureproducts = _signatureProductService.GetCocktails()
                 .Select(product => new SignatureProductIndexVM
                 {
+                    UserId = userId,
+                    User = product.User.UserName,
                     Id = product.Id,
                     ProductName = product.ProductName,
                     TasteId = product.TasteId,
@@ -45,6 +49,7 @@ namespace WebCocktailBar.Controllers
                     Quantity = product.Quantity,
                     Price = product.Price,
                     Discount = product.Discount,
+
                 }).ToList();
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -72,22 +77,25 @@ namespace WebCocktailBar.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] ProductCreateVM product)
-        {
-            if (ModelState.IsValid)
-            {
-                var SignaturecreatedId = _signatureProductService.SignatureCreate(product.ProductName,
-                    product.TasteId, product.CategoryId, product.MethodOfPreparation, product.Picture,
-                    product.Quantity, product.Price, product.Discount);
+[ValidateAntiForgeryToken]
+public ActionResult Create([FromForm] ProductCreateVM product)
+{
+    if (ModelState.IsValid)
+    {
+        string userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier); // get the UserId value from the current user
 
-                if (SignaturecreatedId)
-                {
-                    return RedirectToAction(nameof(Index));
-                }
-            }
-            return View();
+        var SignaturecreatedId = _signatureProductService.SignatureCreate(userId, product.ProductName,
+            product.TasteId, product.CategoryId, product.MethodOfPreparation, product.Picture,
+            product.Quantity, product.Price, product.Discount);
+
+        if (SignaturecreatedId)
+        {
+            return RedirectToAction(nameof(Index));
         }
+    }
+    return View();
+}
+
 
     }
 }

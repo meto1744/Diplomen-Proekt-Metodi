@@ -36,5 +36,7 @@ namespace WebCocktailBar.Models.Product
         public decimal Discount { get; set; }
 
 
+
+
     }
 }

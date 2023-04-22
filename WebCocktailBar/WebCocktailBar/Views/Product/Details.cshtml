@@ -60,10 +60,147 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div >
+    <a class = "buttons" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a class = "buttons" asp-action="Index">Back to List</a>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<style>
+    body {
+        background-color: #F6EEE0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    
+    /* Media queries for responsiveness */
+    @@media (max-width: 1200px) {
+        .container {
+            padding: 1.5rem;
+        }
+    }
+    
+    @@media (max-width: 768px) {
+        .container {
+            padding: 1rem;
+        }
+        
+        .col-sm-2 {
+            width: 30%;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        .col-sm-10 {
+            width: 60%;
+        }
+    }
+    
+    @@media (max-width: 576px) {
+        .col-sm-2 {
+            width: 40%;
+            margin-right: 0.5rem;
+        }
+
+        .col-sm-10 {
+            width: 55%;
+        }
+        buttons {
+        background-color: #F38A31;
+        color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+        margin-right: 1rem;
+    }
+    .buttons:hover {
+        background-color: #1D2B53;
+        color: #fff;
+    }
+    }
+    
+    .buttons {
+        background-color: #F38A31;
+        color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+        margin-right: 1rem;
+    }
+    .buttons:hover {
+        background-color: #1D2B53;
+        color: #fff;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: #1D2B53;
+        text-align: center;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #F38A31;
+        text-align: center;
+    }
+
+    .btn1 {
+        background-color: #F38A31;
+        color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+        margin-right: 1rem;
+    }
+
+    .btn1:hover {
+        background-color: #1D2B53;
+        color: #fff;
+    }
+
+    .fa {
+        margin-right: 0.5rem;        
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-control {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col-sm-2 {
+        width: 20%;
+        margin-right: 2rem;
+        font-weight: bold;
+    }
+
+    .col-sm-10 {
+        width: 70%;
+        margin-bottom: 1rem;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+    }
+</style>

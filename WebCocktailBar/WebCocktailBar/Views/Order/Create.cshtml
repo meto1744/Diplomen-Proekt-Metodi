@@ -1,80 +1,126 @@
 ﻿@model WebCocktailBar.Models.Order.OrderConfirmVM
 
 @{
-    ViewData["Title"] = "Confirm";
+ViewData["Title"] = "Confirm";
 }
 
-<h1>Confirm</h1>
-<form asp-controller="Order" asp-action="Create" method="post">
-    <div>
-        <h4>OrderConfirmVM</h4>
-        <hr />
-        <dl class="row">
-            @*<dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.UserId)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.UserId)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.User)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.User)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.ProductId)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.ProductId)
-                </dd>*@
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ProductName)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ProductName)
-            </dd>
-            <dt class="col-sm-2">
-                Picture
-            </dt>
-            <dd class="col-sm-10">
-                <img src="@Html.DisplayFor(model => model.Picture)" alt="Image" width="100" />
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Quantity)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Quantity)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Price)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Price)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Discount)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Discount)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.TotalPrice)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.TotalPrice)
-            </dd>
-        </dl>
+<div class="container2">
+    <h1 class="header">Confirm</h1>
+    <form asp-controller="Order" asp-action="Create" method="post">
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="@Html.DisplayFor(model => model.Picture)" alt="Image" class="img-fluid rounded-start" />
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"> @Html.DisplayFor(model => model.ProductName)</h5>
+                        <p class="card-text">You Order: @Html.DisplayFor(model => model.Quantity)</p>
+                        <p class="card-text">$@Html.DisplayFor(model => model.Price)</p>
+                        <p class="card-text">Discount: @Html.DisplayFor(model => model.Discount)%</p>
+                        <p class="card-text">TotalPrice:@Html.DisplayFor(model => model.TotalPrice)$</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Confirm" class="btn3 btn-primary" />
+        </div>
+        <input type="hidden" asp-for="ProductId" value="@Model.ProductId" />
+        <input type="hidden" asp-for="Quantity" value="@Model.Quantity" />
+        <input type="hidden" asp-for="UserId" value="@Model.UserId" />
+        <input type="hidden" asp-for="Price" value="@Model.Price" />
+        <input type="hidden" asp-for="Discount" value="@Model.Discount" />
+    </form>
+    <div class="mt-4">
+        <a asp-controller="Product" asp-action="Index" class="btn btn-link1"><i class="fas fa-chevron-left"></i> Back to List</a>
     </div>
-    <div class="form-group">
-        <input type="submit" value="Confirm" class="btn btn-primary" />
-    </div>
-    <input type="hidden" asp-for="ProductId" value="@Model.ProductId" />
-    <input type="hidden" asp-for="Quantity" value="@Model.Quantity" />
-    <input type="hidden" asp-for="UserId" value="@Model.UserId" />
-    <input type="hidden" asp-for="Price" value="@Model.Price" />
-    <input type="hidden" asp-for="Discount" value="@Model.Discount" />
-</form>
-<div>
-    <a asp-controller="Product" asp-action="Index">Back to List</a>
 </div>
+@section scripts {
+<script src="https://kit.fontawesome.com/0269ea35a1.js" crossorigin="anonymous"></script>
+}
+
+<style>
+    body {
+        background-color: #F6EEE0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    .btn3 {
+        display: inline-block;
+        margin-top: 1rem;
+        background-color: #F38A31;
+        color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+    }
+    .btn3:hover{
+        background-color: #1D2B53;
+        color: #fff;
+        text-decoration: none;       
+    }
+    .container2{
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .header {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: #1D2B53;
+        text-align: center;
+    }
+
+    .card {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        margin-bottom: 2rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .card-text {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .btn-link1 {
+        display: inline-block;
+        margin-top: 1rem;
+        background-color: #F38A31;
+        color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-link1:hover {
+        background-color: #1D2B53;
+        color: #fff;
+        text-decoration: none; 
+    }
+
+    .fa {
+        margin-right: 0.5rem;
+    }
+</style>

@@ -6,6 +6,11 @@ namespace WebCocktailBar.Models.SignatureProduct
     {
         [Key]
         public int Id { get; set; }
+
+        public string UserId { get; set; }
+
+        public string User { get; set; }
+
         [Display(Name = "Product Name")]
 
         public string ProductName { get; set; }
@@ -38,6 +43,8 @@ namespace WebCocktailBar.Models.SignatureProduct
         public int ProductId { get; set; }
 
         public string Product { get; set; }
+
+
 
 
     }

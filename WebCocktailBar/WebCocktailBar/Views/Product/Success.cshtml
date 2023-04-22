@@ -1,11 +1,99 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    ViewData["Title"] = "Success";
-}
-<h1>You successfully remove a product! </h1>
+﻿<style>
+    body {
+        background-color: #F6EEE0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .header {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: #1D2B53;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #F38A31;
+    }
+
+    .link {
+        display: inline-block;
+        margin-top: 1rem;
+        background-color: #F38A31;
+        color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+    }
+
+    .link:hover {
+        background-color: #1D2B53;
+        color: #fff;
+    }
+
+    .fa {
+        margin-right: 0.5rem;        
+    }
+
+    .success-message {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: #1D2B53;
+    }
+
+    .back-link {
+        margin-top: 2rem;
+    }
+
+    /* Media queries for responsive design */
+    @@media screen and (max-width: 768px) {
+        .header {
+            font-size: 2rem;
+        }
+        .subtitle {
+            font-size: 1rem;
+        }
+        .link {
+            padding: 0.5rem 1rem;
+        }
+        .success-message {
+            font-size: 1.5rem;
+        }
+    }
+
+   @@media screen and (max-width: 480px) {
+        .header {
+            font-size: 1.5rem;
+        }
+        .subtitle {
+            font-size: 0.8rem;
+        }
+        .link {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+        }
+        .success-message {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<div class="container">
+    <h1 class="header">Success</h1>
+
+    <div class="success-message">
+        <p>You have successfully removed a product!</p>
+    </div>
+
+    <div class="back-link">
+        <a href="@Url.Action("Index", "Product")" class="link"><i class="fa fa-arrow-left"></i> Back to List</a>
+    </div>
 </div>

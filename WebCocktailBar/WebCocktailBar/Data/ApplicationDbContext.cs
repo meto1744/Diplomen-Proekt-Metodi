@@ -9,6 +9,7 @@ using WebShopDemo.Models.Product;
 using WebCocktailBar.Models.Order;
 using WebCocktailBar.Models.Client;
 using WebCocktailBar.Models.SignatureProduct;
+using WebCocktailBar.Models.ContactUs;
 
 namespace WebCocktailBar.Data
 {
@@ -29,6 +30,7 @@ namespace WebCocktailBar.Data
         public DbSet<Order> Orders { get; set; }
 
         public DbSet<SignatureProduct> SignatureProducts { get; set; }
+        public DbSet<ContactMessage> ContactMessages { get; set; }
 
         public DbSet<WebCocktailBar.Models.Product.ProductCreateVM> ProductCreateVM { get; set; }
 

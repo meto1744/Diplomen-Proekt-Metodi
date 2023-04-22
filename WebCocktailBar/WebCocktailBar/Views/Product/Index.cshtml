@@ -5,107 +5,222 @@
     ViewData["Title"] = "Cocktails";
 }
 
-<h1>Cocktails</h1>
-@if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
-{
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-}
-<form asp-controller="Product" asp-action="Index" method="get">
-     <p>
-    Taste: <input type="text" name="SearchStringTasteName"/>
-    Category: <input type="text" name="SearchStringCategoryName"/>
-    <input type="submit" value="Filter"/>
-    </p>
-</form>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            
-            <th>
-                @Html.DisplayNameFor(model => model.TasteName)
-            </th>
-    
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MethodOfPreparation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Picture)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discount)
-            </th>
-            
-                @if (this.User.Identity.IsAuthenticated)
-                {
-                   <th>
-                       Order
-                   </th>
-                }
-           
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TasteName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MethodOfPreparation)
-            </td>
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.Picture)" alt="image" width="100"/>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discount) %
-            </td>
-            @if (this.User.Identity.IsAuthenticated)
-                {
-                        <td>
+<div class="container">
+    <h1 class="header">Cocktails</h1>
+    @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
+    {
+        <p>
+            <a class="btn3 btn-primary" asp-action="Create">Create New</a>
+        </p>
+    }
+    <form asp-controller="Product" asp-action="Index" method="get">
+        <div class="form-group">
+            <label for="SearchStringTasteName">Taste:</label>
+            <input type="text" class="form-control" id="SearchStringTasteName" name="SearchStringTasteName"/>
+        </div>
+        <div class="form-group">
+            <label for="SearchStringCategoryName">Category:</label>
+            <input type="text" class="form-control" id="SearchStringCategoryName" name="SearchStringCategoryName"/>
+        </div>
+        <button type="submit" class="btn3 btn-primary">Filter</button>
+    </form>
+
+    <div class="row">
+        @foreach (var item in Model) {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.Picture)" alt="Product image">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.ProductName)</h5>
+                        <p class="card-text">Category:    @Html.DisplayFor(modelItem => item.CategoryName)</p>
+                        <p class="card-text">Taste:    @Html.DisplayFor(modelItem => item.TasteName)</p>
+                        <p class="card-text">Price:     $@Html.DisplayFor(modelItem => item.Price)</p>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Quantity) Left</p>
+                        @if (this.User.Identity.IsAuthenticated)
+                   {
+                        <p>
                             @await Html.PartialAsync("_OrderPartialView", new OrderConfirmVM
                             {
                                 ProductId = item.Id
                             })
-                        </td>
+                        </p>
                     }
-            <td>
-                
-                @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
-                {<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> }|
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
-                {<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>}
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="@Url.Action("Details", "Product", new { id = item.Id })" class="btn3 btn-sm btn-outline-secondary">Details</a>
+                                @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
+                                {
+                                    <a href="@Url.Action("Edit", "Product", new { id = item.Id })" class="btn3 btn-sm btn-outline-secondary">Edit</a>
+                                    <a href="@Url.Action("Delete", "Product", new { id = item.Id })" class="btn3 btn-sm btn-outline-secondary">Delete</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<style>
+    body {
+  background-color: #F6EEE0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+.form-control {
+    width: 200px;
+    margin: 0 auto;
+  text-align:center;
+}
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.header {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #1D2B53;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #F38A31;
+}
+.btn-group {
+    margin: 0 auto;
+  text-align:center;
+}
+
+.table {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.table thead {
+  background-color: #1D2B53;
+  color: #fff;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #F6EEE0;
+}
+
+.table tbody tr:hover {
+  background-color: #F38A31;
+  color: #fff;
+}
+
+.card-img-top {
+  width: 250px;
+  height: 250px;
+  object-fit: fill;
+  margin: 0 auto;
+  text-align:center;
+  
+}
+
+
+/* Added style for button */
+.btn3 {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #F38A31;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+
+}
+
+/* Style for secondary button */
+.btn-outline-secondary {
+  background-color: #fff;
+  color: #F38A31;
+  border: 1px solid #F38A31;
+  text-decoration: none;
+}
+.order {
+    margin: 0 auto;
+    text-align: center;
+}
+/* Media queries for responsive design */
+@@media screen and (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .table {
+    font-size: 1rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem;
+  }
+
+  /* Responsive button styles */
+  .btn3 {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+@@media screen and (max-width: 576px) {
+  .header {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+
+  .table {
+    font-size: 0.8rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.3rem;
+  }
+
+  /* Responsive button styles */
+  .btn3 {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
+  }
+}
+</style>

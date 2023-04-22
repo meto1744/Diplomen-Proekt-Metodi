@@ -8,6 +8,12 @@ namespace WebCocktailBar.Domain
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
+        [Required]
+
+        public string UserId { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
+
         public int Id { get; set; }
         [Required]
         [MaxLength(30)]
@@ -36,6 +42,6 @@ namespace WebCocktailBar.Domain
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
 
-        public string UserId { get; set; }
+
     }
 }

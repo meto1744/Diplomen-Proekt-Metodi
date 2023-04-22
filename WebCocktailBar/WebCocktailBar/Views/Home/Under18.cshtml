@@ -41,19 +41,65 @@
         cursor: pointer;
     }
 </style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Under 18</title>
+    <style>
+        body {
+            background-color: #F6EEE0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #1D2B53;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #F38A31;
+        }
+
+        .link {
+            display: inline-block;
+            margin-top: 1rem;
+            background-color: #F38A31;
+            color: #fff;
+            border-radius: 0.5rem;
+            padding: 0.5rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover {
+            background-color: #1D2B53;
+            color: #fff;
+        }
+
+        .fa {
+            margin-right: 0.5rem;        
+        }
+        
+    </style>
+</head>
 <body class="gradient-custom">
-@{
-    ViewBag.Title = "Under 18";
-}
+    <div class="container">
+        <h2 class="header">You must be 18 or older to view this site.</h2>
+        <p class="subtitle">Sorry, you are not old enough to view this content.</p>
+        <button id="leave-site" class="link"><i class="fa fa-arrow-left"></i>Leave Site</button>
+    </div>
 
-<div>
-    <h2>You must be 18 or older to view this site.</h2>
-    <p>Sorry, you are not old enough to view this content.</p>
-    <button id="leave-site" class="button">Leave Site</button>
-</div>
-</body>
-
-@section Scripts {
+    @section Scripts {
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
@@ -63,4 +109,6 @@
                 });
             });
         </script>
-}
+    }
+</body>
+</html>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WebCocktailBar.Models.ContactUs.ContactMessage>
+<body class="gradient-custom">
+    <div class="container">
+        <table class="table">
+            <h1 class="header">Contact Messages</h1>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var message in Model)
+                {
+                    <tr>
+                        <td>@message.FirstName</td>
+                        <td>@message.LastName</td>
+                        <td>@message.Email</td>
+                        <td>@message.Comment</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+<style>
+        body {
+            background-color: #F6EEE0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #1D2B53;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #F38A31;
+        }
+
+        .table {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .table thead {
+            background-color: #1D2B53;
+            color: #fff;
+            text-align: left;
+        }
+
+        .table th,
+        .table td {
+            padding: 1rem;
+            border: 1px solid #ccc;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #F6EEE0;
+        }
+
+        .table tbody tr:hover {
+            background-color: #F38A31;
+            color: #fff;
+        }
+
+    </style>

@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Thank You";
+}
+
+<body>
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        <p class="thank-you-message">Thank you for your message. An administrator will get back to you shortly.</p>
+
+        <a href="/" class="link"><i class="fa fa-home"></i>Return to Home</a>
+    </div>
+</body>
+
+<style>
+    body {
+        background-color: #F6EEE0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .header {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: #1D2B53;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #F38A31;
+    }
+
+    .link {
+        display: inline-block;
+        margin-top: 1rem;
+        background-color: #F38A31;
+        color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+    }
+
+    .link:hover {
+        background-color: #1D2B53;
+        color: #fff;
+    }
+
+    .fa {
+        margin-right: 0.5rem;
+    }
+
+    .thank-you-message {
+        font-size: 1.5rem;
+    }
+</style>

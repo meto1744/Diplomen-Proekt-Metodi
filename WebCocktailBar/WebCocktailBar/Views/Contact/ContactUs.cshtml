@@ -1,0 +1,107 @@
+﻿@if (TempData["MessageSent"] != null)
+{
+    <div class="alert">@TempData["MessageSent"]</div>
+}
+<body class="gradient-custom">
+    @if ((this.User.Identity.IsAuthenticated))
+    {
+        <div class="container">
+            <div class="header">Contact Form</div>
+            <form method="post">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="firstName" value="@Model.FirstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="lastName" value="@Model.LastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" value="@Model.Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea class="form-control" name="comment" id="comment" required>@Model.Comment</textarea>
+                </div>
+                <button type="submit" class="button link">Send</button>
+            </form>
+            <a href="/" class="button link"><i class="fa fa-home"></i>Return to Home</a>
+        </div>
+    }
+</body>
+
+<style>
+    body {
+        background-color: #F6EEE0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .header {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: #1D2B53;
+        display: block;
+        font-weight: bold;
+    }
+
+    .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+    border: 1px solid #1D2B53;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+    label {
+        font-size: 1.2rem;
+        color: #1D2B53;
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    textarea {
+        height: 10rem;
+    }
+
+    .button {
+        display: inline-block;
+        margin-top: 1rem;
+        background-color: #F38A31;
+        color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .button:hover {
+        background-color: #1D2B53;
+        color: #fff;
+    }
+
+    .fa {
+        margin-right: 0.5rem;        
+    }
+</style>

@@ -5,22 +5,31 @@
 }
 
 <h1>Index</h1>
-@if (this.User.Identity.IsAuthenticated){
-    <p>
+
+<p>
     <a asp-action="Create">Create New</a>
 </p>
-}
 <table class="table">
     <thead>
         <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.ProductName)
             </th>
-            
+            @*<th>
+                @Html.DisplayNameFor(model => model.TasteId)
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.TasteName)
             </th>
-    
+            @*<th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.CategoryName)
             </th>
@@ -38,17 +47,37 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Discount)
-            
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th></th>
+        </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
             </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.TasteId)
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.TasteName)
             </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.CategoryId)
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
@@ -56,7 +85,7 @@
                 @Html.DisplayFor(modelItem => item.MethodOfPreparation)
             </td>
             <td>
-                <img src="@Html.DisplayFor(modelItem => item.Picture)" alt="image" width="100"/>
+                @Html.DisplayFor(modelItem => item.Picture)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
@@ -65,10 +94,20 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Discount) %
+                @Html.DisplayFor(modelItem => item.Discount)
             </td>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Product)
+            </td>
+            @*<td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>*@
         </tr>
-
 }
     </tbody>
 </table>

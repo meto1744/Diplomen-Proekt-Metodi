@@ -37,5 +37,9 @@ namespace WebCocktailBar.Controllers
         {
             return View();
         }
+        public ActionResult ContactUsResult()
+        {
+            return View();
+        }
     }
 }

@@ -20,10 +20,11 @@ namespace WebCocktailBar.Services
             return products;
         }
 
-        public bool SignatureCreate(string name, int tasteId, int categoryId, string methodofprep, string picture, int quantity, decimal price, decimal discount)
+        public bool SignatureCreate(string UserId, string name, int tasteId, int categoryId, string methodofprep, string picture, int quantity, decimal price, decimal discount)
         {
             SignatureProduct item = new SignatureProduct
             {
+                UserId = UserId,
                 ProductName = name,
                 Taste = _context.Tastes.Find(tasteId),
                 Category = _context.Categories.Find(categoryId),

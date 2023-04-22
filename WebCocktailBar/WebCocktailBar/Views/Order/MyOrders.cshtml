@@ -7,13 +7,13 @@
 <h1>MyOrders</h1>
 
 <p>
-    <a asp-controller="Product" asp-action="Index">Back to Products</a>
+    <a asp-controller="Product" asp-action="Index"class="btn3">Back to Products</a>
 </p>
 
 <form asp-controller="Order" asp-action="MyOrders" method="get">
     <p>
-        Product name: <input type="text" name="SearchString" />
-        <input type="submit" value="Filter" />
+        Product name: <input class="form-control"type="text" name="SearchString" />
+        <button class="btn3" type="submit">Filter</button>
     </p>
 </form>
 
@@ -50,7 +50,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.TotalPrice)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -76,16 +75,16 @@
                     <img src="@Html.DisplayFor(modelItem => item.Picture)" alt="Img" width="100" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
+                    @Html.DisplayFor(modelItem => item.Quantity) Left
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Price)
+                    $@Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Discount)
+                    @Html.DisplayFor(modelItem => item.Discount)%
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                    $@Html.DisplayFor(modelItem => item.TotalPrice)
                 </td>
                 @*<td>
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -96,3 +95,89 @@
         }
     </tbody>
 </table>
+<style>
+    body {
+        background-color: #F6EEE0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .header {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: #1D2B53;
+    }
+    .form-control {
+        width: 200px;
+        margin: 0 auto;
+        text-align:center;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #F38A31;
+    }
+
+    .table {
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 1500px;
+        margin: 0 auto;
+        background-color: #fff;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    .table thead {
+        background-color: #1D2B53;
+        color: #fff;
+        text-align: left;
+    }
+
+    .table th,
+    .table td {
+        padding: 1rem;
+        border: 1px solid #ccc;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #F6EEE0;
+    }
+
+    .table tbody tr:hover {
+        background-color: #F38A31;
+        color: #fff;
+    }
+    .btn3 {
+        display: inline-block;
+        margin-top: 1rem;
+        background-color: #F38A31;
+        color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+    }
+    .btn3:hover{
+        background-color: #1D2B53;
+        color: #fff;
+        text-decoration: none;
+
+
+       
+    }
+
+   
+</style>

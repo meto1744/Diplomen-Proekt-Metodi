@@ -5,7 +5,9 @@ namespace WebCocktailBar.Abstraction
 {
     public interface ISignatureProduct
     {
-        bool SignatureCreate(string name, int tasteId, int categoryId, string methodofprep, string picture, int quantity, decimal price, decimal discount);
+        public bool SignatureCreate(string userId, string productName, int tasteId, int categoryId, string methodOfPreparation, string picture, int quantity, decimal price, decimal discount);
+        
         List<SignatureProduct> GetCocktails();
+       
     }
 }

@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using WebCocktailBar.Models.Category;
+using WebCocktailBar.Models.Taste;
 
 namespace WebCocktailBar.Models.Product
 {

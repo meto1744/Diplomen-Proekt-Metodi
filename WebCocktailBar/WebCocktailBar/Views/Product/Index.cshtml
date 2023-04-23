@@ -29,9 +29,10 @@
         @foreach (var item in Model) {
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
+                    <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.ProductName)</strong></h5>
                     <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.Picture)" alt="Product image">
                     <div class="card-body">
-                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.ProductName)</h5>
+                        
                         <p class="card-text">Category:    @Html.DisplayFor(modelItem => item.CategoryName)</p>
                         <p class="card-text">Taste:    @Html.DisplayFor(modelItem => item.TasteName)</p>
                         <p class="card-text">Price:     $@Html.DisplayFor(modelItem => item.Price)</p>
@@ -83,7 +84,6 @@
   padding: 2rem;
   text-align: center;
 }
-
 .header {
   font-size: 3rem;
   margin-bottom: 2rem;
@@ -223,4 +223,38 @@
     font-size: 0.7rem;
   }
 }
+@@media screen and (max-width: 900px) {
+  .header {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+
+  .table {
+    font-size: 0.8rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.3rem;
+  }
+  @@media screen and (max-width: 1200px) {
+  .header {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+
+  .table {
+    font-size: 0.8rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.3rem;
+  }
 </style>

@@ -1,54 +1,146 @@
 ﻿@model IEnumerable<WebCocktailBar.Models.Client.ClientIndexVM>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Clients";
 }
 
-<h1>Index</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            
-            <td> 
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <body class="gradient-custom">
+    <div class="container">
+        <h1 class="header">Clients</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td> 
+                        <a class="btn3" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    </body>
+    <style>
+        body {
+            background-color: #F6EEE0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #1D2B53;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #F38A31;
+        }
+
+        .table {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .table thead {
+            background-color: #1D2B53;
+            color: #fff;
+            text-align: left;
+        }
+        .table td {
+            text-align: center;
+            margin: 0 auto;
+        }
+        .table th,
+        .table td {
+            text-align: center;
+            margin: 0 auto;
+            padding: 1rem;
+            border: 1px solid #ccc;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #F6EEE0;
+        }
+
+        .table tbody tr:hover {
+            background-color: #F38A31;
+            color: #fff;
+        }
+        .btn3 {
+            text-align: center;
+            margin: 0 auto;
+            display: inline-block;
+            margin-top: 1rem;
+            background-color: #F38A31;
+            color: #fff;
+            border-radius: 0.5rem;
+            padding: 0.5rem 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn3:hover {
+            background-color: #1D2B53;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>

@@ -2,5 +2,56 @@
     ViewData["Title"] = "Contacts";
 }
 <h1>@ViewData["Title"]</h1>
-
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="map-box">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d635.3822443740456!2d23.112102998602573!3d42.61127904320742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa9dfa0925ed2f%3A0xe12c09d6cc773906!2z0YPQuy4g4oCe0JvRg9Cz0LDQvdGB0LrigJwgMTg0LCAyMzAzINCY0LfRgtC-0LosINCf0LXRgNC90LjQug!5e0!3m2!1sbg!2sbg!4v1682259874498!5m2!1sbg!2sbg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div style="display:flex; justify-content:flex-end;">
+  <div style="background-color:#f5f5f5; padding:20px; width:300px;">
+    <div class="contact-item d-flex align-items-center mb-3">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Phone_font_awesome.svg/1200px-Phone_font_awesome.svg.png" alt="Phone" width="20">
+      <a href="tel:+359888952282" class="ml-3 text-muted">+359888952282</a>
+    </div>
+    <div class="contact-item d-flex align-items-center mb-3">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Envelope_alt_font_awesome.svg/1024px-Envelope_alt_font_awesome.svg.png" alt="Mail" width="20">
+      <a href="mailto:meto17444@gmail.com" class="ml-3 text-muted">meto17444@gmail.com</a>
+    </div>
+    <div class="contact-item d-flex align-items-center mb-3">
+      <img src="https://cdn.pixabay.com/photo/2021/06/15/12/17/instagram-6338401_1280.png" alt="Instagram" width="20">
+      <a href="https://www.instagram.com/_kirilowv_/" class="ml-3 text-muted">_Kirilowv_</a>
+    </div>
+    <div class="contact-item d-flex align-items-center mb-3">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" width="20">
+      <a href="https://www.facebook.com/metodi.kirilov.37" class="ml-3 text-muted">Metodi Kirilov</a>
+    </div>
+    <div class="contact-item d-flex align-items-center mb-3">
+      <img src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-twitter-social-media-round-icon-png-image_6315985.png" alt="Twitter" width="20">
+      <a href="https://twitter.com/Meto17444" class="ml-3 text-muted">Meto17444</a>
+    </div>
+  </div>
+</div>
+<style>
+     body {
+            background-color: #F6EEE0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        .container {
+            max-width: 1500px;
+        }
+        .map-box {
+            float: left;
+            border: 2px solid #007bff;
+            padding: 10px;
+            width: 600px;
+            height: 450px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            margin: 20px auto;
+            overflow: hidden; /* add this property */
+        }
+        h1 {
+            text-align:center;
+            margin: 0 auto;
+        }
+       
+</style>

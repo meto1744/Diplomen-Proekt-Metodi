@@ -5,7 +5,6 @@
 }
 
 <h1>MyOrders</h1>
-
 <p>
     <a asp-controller="Product" asp-action="Index"class="btn3">Back to Products</a>
 </p>
@@ -17,9 +16,10 @@
     </p>
 </form>
 
-<table class="table">
-    <thead>
-        <tr>
+<div class="table-container">
+    <table class="table">
+        <thead>
+            <tr>
             <th>
                 @Html.DisplayNameFor(model => model.OrderDate)
             </th>
@@ -95,13 +95,17 @@
         }
     </tbody>
 </table>
+</div>
+
 <style>
+    html{
+        width
+    }
     body {
         background-color: #F6EEE0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #333;
     }
-
     .container {
         max-width: 1500px;
         margin: 0 auto;
@@ -109,13 +113,23 @@
         text-align: center;
     }
 
+    .table-container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+    }
+
     .header {
+        width: 1500px;
         font-size: 3rem;
         margin-bottom: 2rem;
         color: #1D2B53;
     }
+
     .form-control {
-        width: 200px;
+        width: 100%;
+        max-width: 200px;
         margin: 0 auto;
         text-align:center;
     }
@@ -128,34 +142,33 @@
 
     .table {
         margin-top: 2rem;
-        font-size: 1.2rem;
-        border-collapse: collapse;
-        width: 100%;
-        max-width: 1500px;
-        margin: 0 auto;
-        background-color: #fff;
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            font-size: 1.2rem;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
 
     .table thead {
         background-color: #1D2B53;
-        color: #fff;
-        text-align: left;
+            color: #fff;
+            text-align: left;
     }
 
     .table th,
     .table td {
         padding: 1rem;
-        border: 1px solid #ccc;
+            border: 1px solid #ccc;
     }
-
     .table tbody tr:nth-child(even) {
         background-color: #F6EEE0;
     }
 
     .table tbody tr:hover {
         background-color: #F38A31;
-        color: #fff;
+            color: #fff;
     }
     .btn3 {
         display: inline-block;
@@ -170,14 +183,10 @@
         border: none;
         cursor: pointer;
     }
-    .btn3:hover{
+
+    .btn3:hover {
         background-color: #1D2B53;
         color: #fff;
         text-decoration: none;
-
-
-       
     }
-
-   
 </style>

@@ -4,89 +4,141 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>AllOrders</h1>
+<div class="container">
+    <h1 class="header">All Orders</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Product)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Picture)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Discount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalPrice)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product)
+                    </td>
+                    <td>
+                        <img src="@Html.DisplayFor(modelItem => item.Picture)" alt="image" width="100" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        $@Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Discount) %
+                    </td>
+                    <td>
+                        $@Html.DisplayFor(modelItem => item.TotalPrice)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-@*<p>
-    <a asp-action="Create">Create New</a>
-</p>*@
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderDate)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.UserId)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-           @* <th>
-                @Html.DisplayNameFor(model => model.ProductId)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.Product)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Picture)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalPrice)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.User)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.ProductId)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.Product)
-            </td>
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.Picture)" alt="image" width="100" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discount) %
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalPrice)
-            </td>
-           @* <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>*@
-        </tr>
-}
-    </tbody>
-</table>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<style>
+    body {
+        background-color: #F6EEE0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .header {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: #1D2B53;
+    }
+
+    .table {
+        margin-top: 2rem;
+            font-size: 1.2rem;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    .table thead {
+        background-color: #1D2B53;
+            color: #fff;
+            text-align: left;
+    }
+
+    .table th,
+    .table td {
+        padding: 1rem;
+            border: 1px solid #ccc;
+    }
+    .table tbody tr:nth-child(even) {
+        background-color: #F6EEE0;
+    }
+
+    .table tbody tr:hover {
+        background-color: #F38A31;
+            color: #fff;
+    }
+    .btn3 {
+            display: inline-block;
+            margin-top: 1rem;
+            background-color: #F38A31;
+            color: #fff;
+            border-radius: 0.5rem;
+            padding: 0.5rem 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn3:hover {
+            background-color: #1D2B53;
+            color: #fff;
+            text-decoration: none;
+        }
+</style>

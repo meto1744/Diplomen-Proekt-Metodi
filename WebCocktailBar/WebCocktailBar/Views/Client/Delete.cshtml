@@ -8,7 +8,6 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>ClientDeleteVM</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -46,6 +45,75 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index"class="btn btn-secondary">Back to List</a>
     </form>
 </div>
+<style>
+   body {
+        background-color: #F6EEE0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+
+    .prep {
+        text-align: right;
+    }
+
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: #1D2B53;
+        text-align: center;
+    }
+
+    .card {
+        border-radius: 0.5rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    .card-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-text {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-group {
+        margin-top: 1.5rem;
+    }
+
+    .btn {
+        border-radius: 0.5rem;
+        padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background-color: #1D2B53;
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background-color: #F38A31;
+    }
+
+    .btn-secondary {
+        background-color: #F38A31;
+        color: #fff;
+    }
+
+    .btn-secondary:hover {
+        background-color: #1D2C4B;
+        border-color: #1D2C4B;
+        color: #fff;
+    }
+</style>

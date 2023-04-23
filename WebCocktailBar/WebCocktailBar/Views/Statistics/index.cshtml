@@ -4,7 +4,7 @@
 
 @{ViewData["Title"] = "Statistics"; }
 
-<h4 class="text-center">Statistics</h4>
+<h1 class="text-center">Statistics for the Site</h1>
 <div class="text-center">
     <div class="col-x1-8">
         <div class="card-group pb-0">
@@ -47,3 +47,55 @@
         </table>
     </div>
 </div>
+<style>
+    body {
+        background-color: #F6EEE0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .header {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: #1D2B53;
+    }
+
+    .table {
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 1500px;
+        margin: 0 auto;
+        background-color: #fff;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    .table thead {
+        background-color: #1D2B53;
+        color: #fff;
+        text-align: left;
+    }
+
+    .table th,
+    .table td {
+        padding: 1rem;
+        border: 1px solid #ccc;
+    }
+
+    ..table tbody tr:nth-child(even) {
+            background-color: #F6EEE0;
+        }
+
+        .table tbody tr:hover {
+            background-color: #F38A31;
+            color: #fff;
+        }
+</style>

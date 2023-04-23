@@ -80,7 +80,8 @@ namespace WebCocktailBar.Infrastructure
                 new Category {CategoryName ="Dark Rum"},
                 new Category {CategoryName ="Liqueurs"},
                 new Category {CategoryName ="vermouths"},
-                new Category{CategoryName ="Wines"}
+                new Category{CategoryName ="Wines"},
+                new Category{CategoryName ="Aniseed"}
                 
             });
             dataCategory.SaveChanges();
